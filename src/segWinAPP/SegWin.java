@@ -9,6 +9,7 @@ import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class SegWin {
@@ -73,7 +74,14 @@ public class SegWin {
 				 * 打开一个文件选择窗口，选择一个txt文件，获得指向此文件的对象
 				 * 读取其中文本，将文本添加到textInputArea的text区域中
 				 */
-				
+				openFile of = new openFile();
+				try {
+					of.chooseTxt();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				textInputArea.setText(of.getTxt());
 			}
 		});
 		fileOpenBtn.setBounds(0, 100, 100, 100);
