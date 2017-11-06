@@ -90,6 +90,15 @@ public class SegWin {
 				 * 否则使用字符串分词接口对textInputArea的text分词
 				 * 结果添加到textOutputArea的text
 				 */
+				segProcess sp = new segProcess();
+				sp.inputSeg(textInputArea.getText());
+				try {
+					sp.processGo();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				textOutputArea.setText(sp.ouputSeg());
 			}
 		});
 		fileProcessBtn.setBounds(100, 100, 434, 100);

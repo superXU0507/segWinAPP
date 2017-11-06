@@ -17,7 +17,7 @@ public class Nlpir {
 		public String NLPIR_ParagraphProcess(String sSrc, int bPOSTagged);
 
 		public String NLPIR_GetKeyWords(String sLine, int nMaxKeyLimit,boolean bWeightOut);
-
+		
 		public void NLPIR_Exit();
 	}
 
