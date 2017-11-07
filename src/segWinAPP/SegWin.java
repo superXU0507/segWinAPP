@@ -118,6 +118,8 @@ public class SegWin {
 				 * 打开一个文件保存窗口
 				 * 在指定路径新建一个txt文件，将textOutputArea的text存为其文本
 				 */
+				saveFile sf = new saveFile();
+				sf.fileSave(textOutputArea.getText());
 			}
 		});
 		frmIctclas.getContentPane().add(fileSaveBtn);
