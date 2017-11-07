@@ -20,7 +20,7 @@ public class segProcess {
 	
 	public void processGo() throws Exception {
 		//文本处理方法，调用ICTCLAS接口对传入文本进行分词与POS，分词结果输入成员属性
-		String argu = "";
+		String argu = "";	//空路径，是相对路径表示的本项目目录
 		String system_charset = "GBK";
 		int charset_type = 1;
 		int init_flag = CLibrary.Instance.NLPIR_Init(argu.getBytes(system_charset) ,charset_type ,"0".getBytes(system_charset));

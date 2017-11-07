@@ -9,7 +9,7 @@ public class Nlpir {
 	// 定义接口CLibrary，继承自com.sun.jna.Library
 	public interface CLibrary extends Library {
 		// 定义并初始化接口的静态变量
-		CLibrary Instance = (CLibrary) Native.loadLibrary(".\\NLPIR", CLibrary.class);
+		CLibrary Instance = (CLibrary) Native.loadLibrary("NLPIR", CLibrary.class);	//链接dll，相对路径
 
 		// printf函数声明
 		public int NLPIR_Init(byte[] sDataPath, int encoding,byte[] sLicenceCode);
