@@ -5,7 +5,7 @@ import segWinAPP.Nlpir.CLibrary;
 public class segProcess {
 	/*
 	 * 分词处理类
-	 * 传入原文本，调用ICTCLAS接口进行分词与POS
+	 * 传入原文本，调用ICTCLAS接口进行分词与词性分析
 	 * 返回处理结果字符串
 	 */
 	private String beforeSeg;//传入的文本
@@ -19,7 +19,7 @@ public class segProcess {
 	}
 	
 	public void processGo() throws Exception {
-		//文本处理方法，调用ICTCLAS接口对传入文本进行分词与POS，分词结果输入成员属性
+		//文本处理方法，调用ICTCLAS接口对传入文本进行分词与词性分析，分词结果输入成员属性
 		String argu = "";	//空路径，是相对路径表示的本项目目录
 		String system_charset = "GBK";
 		int charset_type = 1;

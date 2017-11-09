@@ -22,7 +22,7 @@ public class openFile {
 		chooser.setFileFilter(filter);	//文件选择器&文件过滤器，防止非法的其它格式文件输入
 		int returnVal = chooser.showOpenDialog(null);
 		if(returnVal != JFileChooser.APPROVE_OPTION) {
-			return;
+			return;		//未选择则退出窗口
 		}
 		
 		BufferedReader reader = new BufferedReader(new FileReader(chooser.getSelectedFile()));
