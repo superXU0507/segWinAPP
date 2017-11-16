@@ -25,7 +25,6 @@ public class saveFile {
 		
 		if(returnVal == JFileChooser.APPROVE_OPTION) {	//如果确定要保存文件
 			f = jf.getSelectedFile();	//如果没有选中任何文件，jf.getName(File)将返回输入的文件名，仅仅是文件名，不是路径
-			System.out.println(jf.getSelectedFile().getName());
 		}else {
 			return;		//否则退出文件选择界面
 		}
@@ -45,8 +44,18 @@ public class saveFile {
 		//选中文件的绝对路径，separator为当前平台的分隔符，避免了跨平台可能出现的路径名错误异常
 		String path = f.getPath() + java.io.File.separator + fileName;
 		f = new File(path);
+		File fIsExists = new File(path + ".txt");
 		
-		if(f.exists()) {	//若选择了已存在文件，或输入了和已存在文件相同的绝对路径名，询问是否覆盖
+		if(fIsExists.exists()) {	//若输入了和已存在文件相同的绝对路径名，询问是否覆盖
+			int i = JOptionPane.showConfirmDialog(null, "该文件已存在，确定要覆盖吗？");
+			if(i == JOptionPane.YES_OPTION) {
+				f = new File(path + ".txt");
+				//确定覆盖，加上txt后缀
+			}
+			else {
+				return;	//否则退出保存界面
+			}
+		}else if(f.exists()){	//若选择了已存在的文件夹
 			int i = JOptionPane.showConfirmDialog(null, "该文件已存在，确定要覆盖吗？");
 			if(i == JOptionPane.YES_OPTION) {
 				//确定覆盖
@@ -54,6 +63,8 @@ public class saveFile {
 			else {
 				return;	//否则退出保存界面
 			}
+		}else {		//创建一个新文件，加上txt后缀
+			f =new File(path + ".txt");
 		}
 		
 		try {	//向目标文件写入文本
